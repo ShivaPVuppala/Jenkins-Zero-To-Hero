@@ -5,7 +5,7 @@ def call() {
     stages {
         stage('build') {
             steps {
-                runMvnCmd()
+                bat '"C:\\Program Files\\apache-maven-3.9.4\\bin\\mvn" clean install'
           
                 }
         }  
