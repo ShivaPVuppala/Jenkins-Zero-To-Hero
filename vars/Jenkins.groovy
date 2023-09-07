@@ -11,7 +11,9 @@ def call() {
         }  
         stage('SonarQube Analysis') {
             steps {
-                sQAnalysis()
+                withSonarQubeEnv('sonarserver') {
+                    bat '"C:\\Program Files\\apache-maven-3.9.4\\bin\\mvn" clean package sonar:sonar'
+                }
             }
         }
         stage('Deploy') {
